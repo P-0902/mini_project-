@@ -1,0 +1,329 @@
+<!--  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar with Settings</title>
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+    .navbar a:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    /* Settings Page Styles */
+    .settings-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .settings-container h2 {
+      margin-bottom: 20px;
+    }
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+    .settings-item label {
+      font-size: 16px;
+    }
+    .settings-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+    .save-button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .save-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  Navbar
+  <div class="navbar">
+    <div class="logo">
+      <a href="#">Journey to Code</a>
+    </div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#settings">Settings</a>
+    </div>
+  </div>
+
+  <!-- Settings Page 
+  <div id="settings" class="settings-container">
+    <h2>Settings</h2>
+    <div class="settings-item">
+      <label for="dark-mode">Enable Dark Mode</label>
+      <input type="checkbox" id="dark-mode">
+    </div>
+    <div class="settings-item">
+      <label for="notifications">Enable Notifications</label>
+      <input type="checkbox" id="notifications">
+    </div>
+    <div class="settings-item">
+      <label for="sound">Enable Sound</label>
+      <input type="checkbox" id="sound">
+    </div>
+    <button class="save-button" onclick="saveSettings()">Save Settings</button>
+  </div>
+
+  <script>
+    // Save Settings Functionality
+    function saveSettings() {
+      const darkMode = document.getElementById('dark-mode').checked;
+      const notifications = document.getElementById('notifications').checked;
+      const sound = document.getElementById('sound').checked;
+
+      alert(`Settings Saved:\nDark Mode: ${darkMode}\nNotifications: ${notifications}\nSound: ${sound}`);
+    }
+  </script>
+</body>
+</html>--/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Settings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+    .navbar a:hover {
+      background-color: #45a049;
+      border-radius: 5px;
+    }
+
+    /* Settings Container */
+    .settings-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .settings-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+
+    /* Settings Item */
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+    .settings-item i {
+      font-size: 20px;
+      color: #4CAF50;
+      margin-right: 10px;
+    }
+    .settings-item label {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      flex-grow: 1;
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Save Button */
+    .save-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .save-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+     <div class="logo">
+       <a href="#">Journey to Code</a>
+     </div>
+     <div class="menu">
+       <a href="#">Home</a>
+       <a href="#">About</a>
+       <a href="#settings">Settings</a>
+     </div>
+   </div>
+ 
+   <!-- Settings Page -->
+   <div id="settings" class="settings-container">
+     <h2>⚙️ Settings</h2>
+     <div class="settings-item">
+       <label for="dark-mode">
+         <i class="fas fa-moon"></i> Enable Dark Mode
+       </label>
+       <label class="switch">
+         <input type="checkbox" id="dark-mode">
+         <span class="slider"></span>
+       </label>
+     </div>
+     <div class="settings-item">
+       <label for="notifications">
+         <i class="fas fa-bell"></i> Enable Notifications
+       </label>
+       <label class="switch">
+         <input type="checkbox" id="notifications">
+         <span class="slider"></span>
+       </label>
+     </div>
+     <div class="settings-item">
+       <label for="sound">
+         <i class="fas fa-volume-up"></i> Enable Sound
+       </label>
+       <label class="switch">
+         <input type="checkbox" id="sound">
+         <span class="slider"></span>
+       </label>
+     </div>
+     <div class="settings-item">
+       <label for="language">
+         <i class="fas fa-language"></i> Preferred Language
+       </label>
+       <select id="language">
+         <option value="english">English</option>
+         <option value="hindi">Hindi</option>
+         <option value="spanish">Spanish</option>
+       </select>
+     </div>
+     <button class="save-button" onclick="saveSettings()">Save Settings</button>
+   </div>
+ 
+   <script>
+     // Save Settings Functionality
+     function saveSettings() {
+       const darkMode = document.getElementById('dark-mode').checked;
+       const notifications = document.getElementById('notifications').checked;
+       const sound = document.getElementById('sound').checked;
+       const language = document.getElementById('language').value;
+ 
+       alert(`Settings Saved:
+ - Dark Mode: ${darkMode}
+ - Notifications: ${notifications}
+ - Sound: ${sound}
+ - Preferred Language: ${language}`);
+     }
+   </script>
+ </body>
+ </html>
+ 
